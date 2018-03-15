@@ -23,19 +23,6 @@ func (mat *m) initState(key string) {
 	}
 }
 
-func string_to_base35array(s string) []byte {
-	var tmp []byte = make([]byte, len(s))
-	for idx := range s {
-		if s[idx] == "0" {
-			tmp[idx] = 0
-		}
-		if s[idx] == "1" {
-			tmp[idx] = 1
-		}
-	}
-	return tmp
-}
-
 func main() {
 	var key = makekey("tony")
 	fmt.Println("len of key is", len(key))
@@ -43,4 +30,7 @@ func main() {
 	fmt.Println(mat)
 	mat.initState(key)
 	fmt.Println(mat)
+
+	b35 := cvt_string_to_b35("a0b")
+	fmt.Println(repr_b53(b35))
 }
